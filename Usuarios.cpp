@@ -28,6 +28,10 @@ vector<Usuarios*> Usuarios:: getMisSeguidores(){
 	return this->misSeguidores;
 }
 
+void Usuarios:: agregarSeguidor(Usuarios* username){
+	misSeguidores.push_back(username);
+}
+
 vector<Posts*>  Usuarios:: getPosts(){
 	return this->publicaciones;
 }

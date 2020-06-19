@@ -21,8 +21,10 @@ class Usuarios
 		void setNombreUsuario(string);
 		void setPassword(string);
 		
-		vector<Usuarios*>& getMisSeguidores();
-		vector<Posts*>& getPosts();
+		void agregarSeguidor(Usuarios*);
+		
+		vector<Usuarios*> getMisSeguidores();
+		vector<Posts*> getPosts();
 		~Usuarios();
 	protected:
 		string nombre, username, password;
