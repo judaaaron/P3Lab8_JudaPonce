@@ -9,7 +9,10 @@ adminArchivos::adminArchivos(string pFileName)
 bool adminArchivos::guardarPersona(vector<Usuarios*>& userss){
 	if(outputFile.is_open()){
 		for(int i=0; i< userss.size();i++){
-			outputFile << userss[i]->getNombre() <<','<< userss[i]->getNombreUsuario()<<','<< userss[i]->getPassword()<<"\n";
+			outputFile << userss[i]->getNombre() <<';'<< userss[i]->getNombreUsuario()<<';'<< userss[i]->getPassword()<<"\n";
+		//	for(int j= 0; j < userss[i]->getPosts().size(); j++){
+		//		outputFile<<"|"<< userss[i]->getPosts()[j]->getTitulo()<<','<< userss[i]->getPosts()[j]->getContenido()<<','<< userss[i]->getPosts()[j]->getLikes()<<','<< userss[i]->getPosts()[j]->getDislikes()<<"\n";
+			//}
 			
 		}
 			return true;
@@ -49,9 +52,9 @@ vector<Usuarios*> adminArchivos:: cargarArchivoUsuario(){
 		stringstream mystream;
 		mystream<< buffer;
 		
-		getline(mystream,nombre,',');
-		getline(mystream,nombreUsuario,',');
-		getline(mystream,password,',');
+		getline(mystream,nombre,';');
+		getline(mystream,nombreUsuario,';');
+		getline(mystream,password,';');
 	
 		
 		retval.push_back(new Usuarios(nombre,nombreUsuario,password));
