@@ -1,0 +1,40 @@
+# Project: P3Lab8_JudaPonce
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = P3Lab8_JudaPonc.o Usuarios.o Posts.o adminArchivos.o Comentarios.o
+LINKOBJ  = P3Lab8_JudaPonc.o Usuarios.o Posts.o adminArchivos.o Comentarios.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = P3Lab8_JudaPonce.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+P3Lab8_JudaPonc.o: P3Lab8_JudaPonc.cpp
+	$(CPP) -c P3Lab8_JudaPonc.cpp -o P3Lab8_JudaPonc.o $(CXXFLAGS)
+
+Usuarios.o: Usuarios.cpp
+	$(CPP) -c Usuarios.cpp -o Usuarios.o $(CXXFLAGS)
+
+Posts.o: Posts.cpp
+	$(CPP) -c Posts.cpp -o Posts.o $(CXXFLAGS)
+
+adminArchivos.o: adminArchivos.cpp
+	$(CPP) -c adminArchivos.cpp -o adminArchivos.o $(CXXFLAGS)
+
+Comentarios.o: Comentarios.cpp
+	$(CPP) -c Comentarios.cpp -o Comentarios.o $(CXXFLAGS)
